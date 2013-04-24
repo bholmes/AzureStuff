@@ -1,28 +1,33 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TodoLibrary;
+//using TodoServerLibrary;
 
 namespace ConsoleTest
 {
-	public class ToDoItem
-	{
-		public int ID {get;set;}
-		public string Title {get;set;}
-		public bool Complete {get;set;}
-	}
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            ITodoList list = new SimpleTodoList();
+            //ITodoList list = new SqlTodoList();
+            list.ClearList();
 
-	class MainClass
-	{
-		public static void Main (string[] args)
-		{
-			List<ToDoItem> items = new List<ToDoItem> ();
-			items.Add (new ToDoItem {ID=1,Title="Design App"});
-			items.Add (new ToDoItem {ID=2,Title="Implement App"});
-			items.Add (new ToDoItem {ID=3,Title="Test App"});
-			items.Add (new ToDoItem {ID=4,Title="Profit"});
+            list.AddItem("Design App");
+            list.AddItem("Implement App");
+            list.AddItem("Test App");
+            list.AddItem("Profit");
 
-			items.Dump ();
-			items.Select (e=>new {Title = e.Title, ID=e.ID}).Dump ();
-		}
-	}
+            list.Items.Dump();
+            var query1 = from item in list.Items
+                         where item.ID == 2 || item.ID == 4
+                         select item;
+
+            foreach (TodoItem item in query1)
+                list.MarkComplete(item);
+
+            list.Items.Dump();
+        }
+    }
 }
