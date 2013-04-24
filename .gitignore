@@ -7,3 +7,6 @@
 /TodoServerLibrary/bin
 /TodoServerLibrary/obj
 /TodoServerLibrary/TodoServerLibrary.csproj.user
+/TodoService/obj
+/TodoService/bin
+/TodoService/TodoService.csproj.user
