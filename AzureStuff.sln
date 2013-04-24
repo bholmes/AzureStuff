@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoLibrary", "TodoLibrary\TodoLibrary.csproj", "{0F6A72EE-9DA3-4702-867A-E40AFE8138B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoServerLibrary", "TodoServerLibrary\TodoServerLibrary.csproj", "{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{0F6A72EE-9DA3-4702-867A-E40AFE8138B2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0F6A72EE-9DA3-4702-867A-E40AFE8138B2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0F6A72EE-9DA3-4702-867A-E40AFE8138B2}.Release|x86.ActiveCfg = Release|Any CPU
+		{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4536FB39-F7C5-4BF0-8E61-9B7225AE2DD4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

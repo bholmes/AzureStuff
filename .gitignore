@@ -4,3 +4,6 @@
 /TodoLibrary/bin
 /TodoLibrary/obj
 /AzureStuff.suo
+/TodoServerLibrary/bin
+/TodoServerLibrary/obj
+/TodoServerLibrary/TodoServerLibrary.csproj.user
