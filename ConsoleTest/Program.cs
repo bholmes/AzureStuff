@@ -14,7 +14,7 @@ namespace ConsoleTest
             try
             {
                 //list = new SimpleTodoList();
-                list = new LocalSqlTodoListBase();
+                list = new LocalSqlTodoList();
                 list.ClearList();
 
                 list.AddItem("Design App");
@@ -24,7 +24,7 @@ namespace ConsoleTest
 
                 list.Items.Dump();
                 var query1 = from item in list.Items
-                             where item.ID == 2 || item.ID == 4
+                             where item.Id == 2 || item.Id == 4
                              select item;
 
                 foreach (TodoItem item in query1)

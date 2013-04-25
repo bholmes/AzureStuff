@@ -3,29 +3,78 @@ using ServiceStack.ServiceHost;
 using ServiceStack.ServiceInterface;
 using ServiceStack.WebHost.Endpoints;
 using Funq;
-
+using TodoLibrary;
+using System.Linq;
+using TodoServerLibrary;
 
 namespace TodoService
 {
-    [Route("/hello")]
-    [Route("/hello/{Name}")]
-    public class Hello
+    [Route("/todolist")]
+    public class TodoListRequest
     {
-        public string Name { get; set; }
+        
     }
 
-    public class HelloResponse
+    [Route("/markitemcomplete")]
+    [Route("/markitemcomplete/{Id}")]
+    public class MarkItemCompleteRequest
     {
-        public string Result { get; set; }
+        public int Id { get; set; }
     }
 
-    public class HelloService : Service
+    [Route("/additem")]
+    [Route("/additem/{Title}")]
+    public class AddItemRequest
     {
-        public object Get(Hello request)
+        public string Title { get; set; }
+    }
+
+    public class TodoService : Service
+    {
+        private object CreateListAndCall(Func<ITodoList, object> func)
         {
-            var retString = string.Format("Hello {0}", request.Name);
+            ITodoList list = null;
+            try
+            {
+                list = new AzureSqlTodoList();
 
-            return new HelloResponse { Result = retString };
+                return func(list);
+            }
+
+            finally
+            {
+                if (list != null && list is IDisposable)
+                {
+                    var dispose = list as IDisposable;
+                    dispose.Dispose();
+                }
+            }
+        }
+        
+        public object Get(TodoListRequest request)
+        {
+            return CreateListAndCall(list =>
+            {
+                return list.Items.ToList();
+            });
+        }
+
+        public void Put(MarkItemCompleteRequest request)
+        {
+            CreateListAndCall(list =>
+            {
+                list.MarkComplete(new TodoItem { Id = request.Id });
+                return null;
+            });
+        }
+
+        public void Post(AddItemRequest request)
+        {
+            CreateListAndCall(list =>
+            {
+                list.AddItem(request.Title);
+                return null;
+            });
         }
     }
 
@@ -34,7 +83,7 @@ namespace TodoService
         public class HelloAppHost : AppHostBase
         {
             //Tell Service Stack the name of your application and where to find your web services
-            public HelloAppHost() : base("Hello Web Services", typeof(HelloService).Assembly) { }
+            public HelloAppHost() : base("Todp Web Services", typeof(Global).Assembly) { }
 
             public override void Configure(Container container)
             {

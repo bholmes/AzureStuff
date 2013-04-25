@@ -15,7 +15,7 @@ namespace TodoLibrary
             if (string.IsNullOrWhiteSpace(taskName))
                 throw new ArgumentException("Name is invalid", "taskName");
 
-            var newItem = new TodoItem { ID = _nextID++, Title = "Design App" };
+            var newItem = new TodoItem { Id = _nextID++, Title = taskName };
             _items.Add(newItem);
         }
 
@@ -32,7 +32,7 @@ namespace TodoLibrary
             if (item == null)
                 throw new ArgumentException("Item is invalid", "item");
 
-            var found = Items.Where(e => e.ID == item.ID).FirstOrDefault();
+            var found = Items.Where(e => e.Id == item.Id).FirstOrDefault();
             if (found == null)
                 throw new Exception("item not found");
 

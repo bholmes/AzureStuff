@@ -7,7 +7,7 @@ namespace TodoLibrary
 {
     public class TodoItem
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public bool Complete { get; set; }
     }

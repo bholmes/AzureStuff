@@ -12,7 +12,7 @@ namespace TodoServerLibrary
         {
             return new TodoItem
             {
-                ID=this.id,
+                Id=this.id,
                 Title = this.title,
                 Complete = this.complete
             };
@@ -53,7 +53,7 @@ namespace TodoServerLibrary
 
             var table = DataContext.GetTable<SqlTodoItem>();
 
-            var found = table.Where(e => e.id == item.ID).FirstOrDefault();
+            var found = table.Where(e => e.id == item.Id).FirstOrDefault();
             if (found == null)
                 throw new Exception("item not found");
 
