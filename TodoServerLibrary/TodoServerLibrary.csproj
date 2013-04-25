@@ -59,7 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LocalSqlTodoListBase.cs" />
+    <Compile Include="AzureSqlTodoList.cs" />
+    <Compile Include="LocalSqlTodoList.cs" />
     <Compile Include="SqlTodoListBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

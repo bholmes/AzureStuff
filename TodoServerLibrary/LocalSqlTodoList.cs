@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TodoServerLibrary
 {
-    public class LocalSqlTodoListBase : SqlTodoListBase
+    public class LocalSqlTodoList : SqlTodoListBase
     {
         TodoDataContext _dataContext = new TodoDataContext();
 
